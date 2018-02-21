@@ -8,12 +8,10 @@ class Process{
 		int id;
 		int arrival;
 		int burst;
-		int start;
 		float wait;
 		float turn;
 	
 	Process(){
-		start = -1;
 		wait = 0;
 		turn = 0;
 	}
@@ -53,24 +51,26 @@ void sjf_p(Process plist[],int n){
 				for(Process k: temp)
 				std::cout<<k.id<<":"<<k.burst<<" ";
 				std::cout<<"\n";
-				if(temp.front().start==-1)
-					temp.front().start = ttime;
 				temp.front().burst -= 1;
-				if(temp.front().burst==0)
-					{temp.front().turn = ttime - temp.front().start;
-					 final.push_back(temp.front());
-					 temp.pop_front();
-					 }
+				ttime +=1;
 				for(int p = 1;p<temp.size();p++)
 					{
 					temp[p].wait +=1;
 					}	
+				if(temp.front().burst==0)
+					{temp.front().turn = ttime - temp.front().arrival;
+					 final.push_back(temp.front());
+					 temp.pop_front();
+					 }
+				
 
 				
-			}
+			}else{
 			
 				ttime += 1;
-				
+			
+			}
+
 			}
 		
 
