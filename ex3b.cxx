@@ -42,15 +42,15 @@ void sjf_p(Process plist[],int n){
 				Process k = buffer.back();
 				buffer.pop_back();
 				temp.push_back(k);
-				std::cout<<"Pushing - "<<k.burst<<" "<<ttime<<std::endl;
-				std::cout<<buffer.size()<<std::endl;	
+				//std::cout<<"Pushing - "<<k.burst<<" "<<ttime<<std::endl;
+				//std::cout<<buffer.size()<<std::endl;	
 			}
 
 			if(temp.size()>0){
 				std::sort(temp.begin(),temp.end(),burstcomparator);
-				for(Process k: temp)
-				std::cout<<k.id<<":"<<k.burst<<" ";
-				std::cout<<"\n";
+				//for(Process k: temp)
+				//std::cout<<k.id<<":"<<k.burst<<" ";
+				//std::cout<<"\n";
 				temp.front().burst -= 1;
 				ttime +=1;
 				for(int p = 1;p<temp.size();p++)
@@ -74,9 +74,9 @@ void sjf_p(Process plist[],int n){
 			}
 		
 
-		std::cout<<temp.size()<<"$\n";	
-		for(Process k : final)
-		std::cout<<k.burst<<std::endl;
+		//std::cout<<temp.size()<<"$\n";	
+		//for(Process k : final)
+		//std::cout<<k.burst<<std::endl;
 				
 	
 	
