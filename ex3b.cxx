@@ -108,27 +108,6 @@ void sjf_p(Process plist[],int n){
 	
 }
 
-void fcfs(Process plist[],int n){
-	
-	float avg = 0;
-	float turn = 0;
-	float prev = 0;
-	float prev2 = 0;
-
-	for(int i=0;i<n;i++){
-		avg += prev;
-		prev += plist[i].burst;
-		turn = prev2 + turn + plist[i].burst;
-		prev2 += plist[i].burst;
-
-	}
-	avg = avg/n;
-	turn = turn/n;
-
-	std::cout<<"Average Wait Time = "<<avg<<std::endl;
-	std::cout<<"Average Turnover Time = "<<turn<<std::endl;
-
-}
 
 int main(){
 
