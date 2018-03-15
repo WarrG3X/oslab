@@ -29,9 +29,7 @@ class File{
 			}
 		}
 		catch(const std::bad_alloc &e){
-			std::cerr << "ERROR : ";
-			std::cerr << e.what();
-			std::cerr << "\nMemory Unavailable" << std::endl;
+			throw e;
 		}
 	}
 
@@ -54,7 +52,15 @@ int main(){
 		std::cin>>files[i].size;
 		std::cout<<"Starting Block - ";
 		std::cin>>files[i].start;
+		try{
 		files[i].allocMem();
+		}
+		catch(const std::bad_alloc &e){
+			std::cerr << "ERROR : ";
+			std::cerr << e.what();
+			std::cerr << "\nMemory Unavailable" << std::endl;
+			return 1;
+		}
 	}
 	
 	std::cout << "\n--------------\n";
