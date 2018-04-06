@@ -1,6 +1,4 @@
-#include<iostream>
-#include<deque>
-#include<algorithm>
+#include<bits/stdc++.h>
 
 
 
@@ -35,7 +33,7 @@ void FIFOreplace(std::deque<int> slots,std::deque<int> pages){
 
 	}
 
-	std::cout<<"Total Page Faults = "<<total_faults; 
+	std::cout<<"Total Page Faults = "<<total_faults<<"\n"; 
 
 }
 
@@ -43,21 +41,24 @@ void FIFOreplace(std::deque<int> slots,std::deque<int> pages){
 int main(){
 
 	int f,p,c;
+	std::string rawInput;
 	std::deque<int> pages;
 	std::deque<int> slots;
 
 	std::cout<<"Enter No. of Slots - ";
 	std::cin>>f;
-	std::cout<<"Enter No. of Pages - ";
-	std::cin>>p;
+	std::cout<<"Enter Page Reference String - ";
+	std::cin.ignore();
+	getline(std::cin,rawInput);
+	std::istringstream iss(rawInput);
 
-
-	std::cout<<"Enter Pages - \n";
-
-	for(int i=0;i<p;i++){
-		std::cin>>c;
+	
+	while(iss >> c){
 		pages.push_back(c);
+
 	}
+
+
 
 	for(int i=0;i<f;i++)
 		slots.push_back(-1);
